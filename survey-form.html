@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <style>
+      :root{
+        --color-palette-1: #b98671;
+        --color-palette-2: #9c4830;
+        --color-palette-3: #353f26;
+        --color-palette-4: #513f29;
+        --background-input: #d1966938;
+      }
+
+      ::-webkit-scrollbar{
+        width:10px;
+      }
+
+      ::-webkit-scrollbar-thumb{
+        border-radius: 10px;
+        /* background-color: #e4d5c8; */
+        background-color: #513f299b;
+      }
+
+      ::-webkit-scrollbar-track{
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.596);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.055), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+      }
+
+      *{
+        box-sizing: border-box;
+        font-family: monospace;
+      }
+
+      body{
+        background-image: url("https://images.unsplash.com/photo-1513290732475-18faea20ab11?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+      }
+
+      .survey-container{
+        background-color: rgba(255, 255, 255, 0.687);
+        position: absolute;
+        margin: auto;
+        top: 10%;
+        right: 0;
+        left: 0;
+        bottom: 10%;
+        width: 50vw;
+        height:auto;
+        border-radius: 3px;
+        padding: 5%;
+        z-index: -1;
+        display: flex;
+        flex-direction: column;
+        border-radius: 30px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.055), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+      }
+
+      #description{
+        margin-top: 0;
+        font-style: italic;
+        text-align: center;
+        color: var(--color-palette-3)
+      }
+
+      #title{
+        margin-bottom: 0;
+        text-align: center;
+        font-size: 3em;
+        color: var(--color-palette-4)
+      }
+
+      form{
+        overflow: auto;
+      }
+
+      fieldset{
+        border: none;
+        margin: 0;
+        width: 100%;
+      }
+
+      .input-field{
+        display: flex;
+        flex-direction: column;
+      }
+
+      .input-field:not(:last-child){
+        margin-bottom: 20px;
+      }
+
+      .input-box, #dropdown, textarea{
+        border: none;
+        background-color: var(--background-input);
+        color: var(--color-palette-4);
+        font-weight: bold;
+        margin: 0;
+        padding: 0.75rem;
+        border-radius: 20px;
+      }
+      .input-box:focus, #dropdown:focus, textarea:focus{
+        outline: none;
+        border: var(--color-palette-1) solid 2px;
+      }
+      .input-box::placeholder, option:nth-of-type(1), textarea::placeholder{
+        color: var(--color-palette-2);
+        opacity: 30%;
+      }
+
+      .label{
+        color: var(--color-palette-2);
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+      span{
+        font-weight: normal;
+        font-size: 0.9rem;
+        color: var(--color-palette-1);
+      }
+      input[type=submit]{
+        width: 50%;
+        align-self: center;
+        color: var(--color-palette-4);
+        padding: 0.75rem;
+        border: var(--color-palette-4) solid 2px;
+        border-radius: 20px;
+      }
+      input[type=submit]:hover{
+        color: #fff;
+        font-size: 1.25em;
+        font-weight: bold;
+        border: none;
+        background-color: var(--color-palette-3);
+      }
+      footer{
+        border: black 2px solid;
+        height: 20%;
+        width: auto;
+      }
+      @media only screen and (max-width: 768px) {
+        .survey-container{
+          width: 90vw;
+        }
+      }
+    </style>
+</head>
+<body>
+  <main>
+    <div class="survey-container">
+    <h1 id="title">Welcome Back!</h1>
+    <p id="description">Thank You For Dedicating Your Time</p>
+    <form id="survey-form">
+      <fieldset>
+        <div class="input-field">
+          <label id="name-label" class="label">Name:</label>
+          <input class="input-box" type="text" name="name" id="name" placeholder="Enter your name" required />
+        </div>
+        <div class="input-field">
+          <label id="email-label" class="label">Email:</label>
+          <input class="input-box" type="email" name="email" id="email" placeholder="Enter your email" required />
+        </div>
+        <div class="input-field">
+          <label id="number-label" class="label">Age:</label>
+          <input class="input-box" type="number" name="age" id="number" placeholder="Enter your age" pattern="[0-9]" min="18" max="80" required />
+        </div>
+        <div class="input-field">
+          <p class="label">Your Skils<span class="clue">(Check all that apply)</span></p>
+          
+          <label>
+            <input type="checkbox" name="skill" class="checkbox" value="HTML/CSS" />HTML/CSS
+          </label>
+          <label>
+            <input type="checkbox" name="skill" class="checkbox" value="JavaScript" />JavaScript
+          </label>
+          <label>
+            <input type="checkbox" name="skill" class="checkbox" value="React" />React
+          </label>
+          <label>
+            <input type="checkbox" name="skill" class="checkbox" value="Java" />Java
+          </label>
+          <label>
+            <input type="checkbox" name="skill" class="checkbox" value="MySQL" />MySQL
+          </label>
+          <label>
+            <input type="checkbox" name="skill" class="checkbox" value="jQuery" />jQuery
+          </label>
+          <label>
+            <input type="checkbox" name="skill" class="checkbox" value="Swift" />Swift
+          </label>
+        </div>
+        <div class="input-field">
+          <label class="label">How did you hear about us?</label>
+          <select name="referrer" id="dropdown">
+            <option value="" disabled="disabled">(select one)</option>
+            <option value="news">News</option>
+            <option value="youtube">YouTube Channel</option>
+            <option value="forum">Forum</option>
+            <option value="other">Other</option>
+          </select>
+          
+        </div>
+
+        <div class="input-field">
+          <p class="label">Would you recommend us to a friend?</p>
+          <label><input type="radio" name="account-type" class="input-radio" value="personal"/> Definitely</label>
+          <label><input type="radio" name="account-type" class="input-radio" value="business"/> Maybe</label>
+          <label><input type="radio" name="account-type" class="input-radio" value="business"/> Not Sure</label>
+        </div>
+        
+        <div class="input-field">
+          <label class="label">Any comments or suggestions?</label>
+          <textarea name="comment" rows="3" cols="30" placeholder="Additional comment"></textarea>
+        </div>
+        <div class="input-field">
+          <input type="submit" id="submit" value="Submit" />
+        </div>
+         
+      </fieldset>
+      
+    </form>
+    </div>
+  </main>
+</body>
+</html>
